@@ -5,11 +5,10 @@ class PostComponent extends React.Component {
     unsorted: true
   };
 
+  /* function linked to the sort method to compare the tags strings*/
   Compare = (a, b) => {
-    /*const tagsA = a.tags;*/
-    const tagsA = typeof a.tags === "string" ? a.tags.toUpperCase() : a.tags;
-    /*const tagsB = b.tags;*/
-    const tagsB = typeof b.tags === "string" ? b.tags.toUpperCase() : b.tags;
+    const tagsA = a.tags;
+    const tagsB = b.tags;
 
     let comparison = 0;
     if (tagsA > tagsB) {
@@ -19,17 +18,20 @@ class PostComponent extends React.Component {
     }
     return comparison;
   };
+
   isTrue = () => {
     this.setState({ unsorted: false });
   };
 
   render() {
+    /* create a copy of the data to sort*/
     const myData = [...this.props.data].sort(this.Compare);
     return (
       <div className="component2">
         <h3>View posts</h3>
         <div className="container2">
           <div className="btn">
+            {/* on click the state value will change and modify the rendering of data */}
             <button className="button2" onClick={this.isTrue}>
               Sort by tag
             </button>
@@ -63,7 +65,7 @@ class PostComponent extends React.Component {
     );
   }
 }
-
+/* Component to set the line in the middle of each rendered post*/
 const Line = ({ color }) => (
   <hr
     style={{
