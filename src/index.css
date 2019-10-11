@@ -1,13 +1,130 @@
 body {
   margin: 0;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #f5f5f5;
+  box-sizing: border-box;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+h1 {
+  margin-left: 143px;
+}
+/* Two components */
+.twoComponents {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 0 20px;
+}
+/* First component */
+.component1 {
+  display: flex;
+  align-items: center;
+}
+.container1 {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  border-radius: 4px;
+  padding-top: 38px;
+  margin-right: 0;
+  padding-left: 20px;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 600;
+  display: block;
+}
+
+input,
+textarea {
+  width: 384px;
+  height: 20px;
+  padding: 10px;
+  border: 0.5px #D3D3D3 solid;
+  margin-bottom: 20px;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+}
+textarea {
+  height: 40px;
+}
+.input {
+  margin-top: 12px;
+}
+.textarea {
+  margin-top: 12px;
+}
+.button {
+  background-color: #8a2be2;
+  color: white;
+  width: 72px;
+  height: 30px;
+  font-weight: 600px;
+  border-radius: 4px;
+}
+
+/* Second Component */
+
+.component2 {
+  margin-left: 20px;
+}
+.container2 {
+  padding-left: 6px;
+  padding-right: 20px;
+  margin-left: 0;
+}
+.btn {
+  margin-bottom: 12px;
+}
+.button2 {
+  background-color: #8a2be2;
+  color: white;
+  width: 100px;
+  height: 30px;
+  border-radius: 4px;
+  font-weight: 600px;
+}
+
+.onePost {
+  background: white;
+  display: flex;
+  flex-direction: column;
+  height: 90px;
+  width: 416px;
+  margin-bottom: 6px;
+  border-radius: 4px;
+}
+.contentPost {
+  font-size: 12px;
+  align-items: flex-start;
+}
+.authorPost {
+  font-size: 12px;
+  align-items: flex-end;
+}
+.line {
+  align-self: center;
+  color: #d3d3d3;
+  height: 1px;
+}
+.tagPost {
+  font-size: 10px;
+  align-items: center;
+  background: #d3d3d3;
+  color: #888888;
+  width: 12px;
+  height: 18px;
+  border-radius: 3px;
 }
