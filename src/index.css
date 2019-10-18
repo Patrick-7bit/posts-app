@@ -16,14 +16,16 @@ code {
 }
 
 h1 {
-  margin-left: 143px;
+  display: flex;
+  justify-content: space-around;
+  margin-right: 960px;
 }
+
 /* Two components */
 .twoComponents {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin: 0 20px;
 }
 /* First component */
 .component1 {
@@ -31,7 +33,7 @@ h1 {
   align-items: center;
 }
 .container1 {
-  height: 100%;
+  height: max-content;
   width: 100%;
   background-color: white;
   border-radius: 4px;
@@ -39,7 +41,7 @@ h1 {
   margin-right: 0;
   padding-left: 20px;
 }
-
+/* form */
 .label {
   font-size: 12px;
   font-weight: 600;
@@ -57,22 +59,29 @@ textarea {
   display: flex;
   justify-content: center;
 }
+
 textarea {
   height: 40px;
-}
-.input {
   margin-top: 12px;
 }
-.textarea {
+
+input {
   margin-top: 12px;
 }
-.button {
+/* Button to post */
+button {
   background-color: #8a2be2;
   color: white;
   width: 72px;
   height: 30px;
   font-weight: 600px;
   border-radius: 4px;
+  margin-bottom: 30px;
+  cursor: pointer;
+}
+button:hover {
+  border: 1px solid #7023b8;
+  background: #7023b8;
 }
 
 /* Second Component */
@@ -85,6 +94,8 @@ textarea {
   padding-right: 20px;
   margin-left: 0;
 }
+
+/* Buttons to sort */
 .btn {
   margin-bottom: 12px;
 }
@@ -97,34 +108,46 @@ textarea {
   font-weight: 600px;
 }
 
+.button2:hover,
+textarea:hover {
+  border: 1px solid #b4b4b4;
+}
+/* rendering of data */
 .onePost {
   background: white;
   display: flex;
   flex-direction: column;
   height: 90px;
   width: 416px;
+  padding: 20px;
   margin-bottom: 6px;
   border-radius: 4px;
 }
 .contentPost {
+  color: #545454;
   font-size: 12px;
   align-items: flex-start;
+  margin-bottom: 10px;
 }
 .authorPost {
+  align-self: flex-end;
+  color: #a3a3a3;
   font-size: 12px;
   align-items: flex-end;
 }
 .line {
   align-self: center;
   color: #d3d3d3;
-  height: 1px;
+  height: 0.1px;
 }
 .tagPost {
   font-size: 10px;
   align-items: center;
   background: #d3d3d3;
   color: #888888;
-  width: 12px;
-  height: 18px;
-  border-radius: 3px;
+  text-align: center;
+  width: max-content;
+  padding: 0.2rem 0.4rem;
+  border-radius: 6px;
+  margin-top: 10px;
 }
