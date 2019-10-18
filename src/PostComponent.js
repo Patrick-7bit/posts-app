@@ -1,50 +1,73 @@
 import React from "react";
+/* installation of lodash library to set up the sort functions*/
+var _ = require("lodash");
 
 class PostComponent extends React.Component {
   state = {
-    unsorted: true
-  };
-
-  /* function linked to the sort method to compare the tags strings*/
-  Compare = (a, b) => {
-    const tagsA = a.tags;
-    const tagsB = b.tags;
-
-    let comparison = 0;
-    if (tagsA > tagsB) {
-      comparison = 1;
-    } else if (tagsA < tagsB) {
-      comparison = -1;
-    }
-    return comparison;
+    unsorted: true,
+    unsortedNumbers: false
   };
 
   isTrue = () => {
-    this.setState({ unsorted: false });
+    this.setState({ unsorted: false, unsortedNumbers: false });
+  };
+  areUnsortedNumbers = () => {
+    this.setState({ unsortedNumbers: true, unsorted: false });
   };
 
   render() {
-    /* create a copy of the data to sort*/
-    const myData = [...this.props.data].sort(this.Compare);
+    /* creation of a new array with key tags sorted alphabetically*/
+    const tabTags = _.orderBy(
+      [...this.props.data],
+      [
+        item =>
+          item.tags
+            .toString()
+            .trim()
+            .toLowerCase()
+      ],
+      ["asc"]
+    );
+    /* creation of a new array with key number sorted in ascending order */
+    const tabNumbers = _.orderBy(
+      [...this.props.data],
+      [item => item.number],
+      ["asc"]
+    );
     return (
       <div className="component2">
         <h3>View posts</h3>
         <div className="container2">
           <div className="btn">
-            {/* on click the state value will change and modify the rendering of data */}
+            {/* by clicking on buttons the state values will change and modify the rendering of data */}
             <button className="button2" onClick={this.isTrue}>
               Sort by tag
             </button>
-            <button className="button2">Sort by number</button>
+            <button className="button2" onClick={this.areUnsortedNumbers}>
+              Sort by number
+            </button>
           </div>
           {this.state.unsorted ? (
             <div>
-              {this.props.data.map((element, index) => {
+              {this.props.data.map(element => {
                 return (
-                  <div key={element.index} className="onePost">
-                    <span className="contentPost">{element.content}</span>
+                  <div key={element.author} className="onePost">
                     <span className="authorPost">{element.author}</span>
-                    <Line color="#d3d3d3" />
+                    <span className="contentPost">{element.content}</span>
+                    <Line color="#D7D7D7" />
+                    <span className="tagPost">{element.tags}</span>
+                  </div>
+                );
+              })}
+            </div>
+          ) : this.state.unsortedNumbers ? (
+            <div>
+              {tabNumbers.map(element => {
+                return (
+                  <div key={element.author} className="onePost">
+                    <span className="authorPost">{element.author}</span>
+                    <span className="contentPost">{element.content}</span>
+                    <Line color="#D7D7D7" />
                     <span className="tagPost">{element.tags}</span>
                   </div>
                 );
@@ -52,10 +75,12 @@ class PostComponent extends React.Component {
             </div>
           ) : (
             <div>
-              {myData.map((item, i) => (
-                <div key={i}>
-                  {item.content} {item.author}
-                  {item.tags}
+              {tabTags.map(item => (
+                <div key={item.author} className="onePost">
+                  <span className="authorPost">{item.author}</span>
+                  <span className="contentPost">{item.content}</span>
+                  <Line color="#D7D7D7" />
+                  <span className="tagPost">{item.tags}</span>
                 </div>
               ))}
             </div>
@@ -65,14 +90,14 @@ class PostComponent extends React.Component {
     );
   }
 }
-/* Component to set the line in the middle of each rendered post*/
+/*Component to set the line in the middle of each rendered post*/
 const Line = ({ color }) => (
   <hr
     style={{
       color: color,
       background: color,
-      height: 0.5,
-      width: 380
+      height: 0.05,
+      width: 420
     }}
   />
 );

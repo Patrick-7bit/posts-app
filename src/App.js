@@ -24,10 +24,100 @@ class App extends React.Component {
         content: "Create your own fashion style and stop stan smith",
         tags: ["Art&Design"],
         author: "Soukaina Hafidi"
+      },
+      {
+        number: 4,
+        content: "Instagram, or the new fashion show",
+        tags: ["Art&Design"],
+        author: "Yasmine Boussaid"
+      },
+      {
+        number: 5,
+        content: "Break frontiers through culture",
+        tags: [" Human&Relationship"],
+        author: "Primrose Semilinko"
+      },
+      {
+        number: 6,
+        content: "Break frontiers through culture",
+        tags: [" Human&Relationship"],
+        author: "César Roussel"
+      },
+      {
+        number: 1,
+        content: "Music festivals, a way of gathering cultures",
+        tags: ["Culture&Lifestyle"],
+        author: "Agathe Lemoyne"
+      },
+      {
+        number: 2,
+        content: "Stop talking, start doing !",
+        tags: [" Human&Relationship"],
+        author: "Azzeddine Hassena"
+      },
+      {
+        number: 3,
+        content: "Teaching science for dummies",
+        tags: [" Technology&Science"],
+        author: "Raphaël Béroux"
+      },
+      {
+        number: 4,
+        content: "Understand the success of the french wine",
+        tags: ["Culture&Lifestyle"],
+        author: "Céleste Gaultier"
+      },
+      {
+        number: 5,
+        content: "The right cost of fair agriculture",
+        tags: [" Wellness&Health"],
+        author: "Jules Lettermann"
+      },
+      {
+        number: 6,
+        content: "How to form a band",
+        tags: ["Art&Design"],
+        author: "Simin Liu"
+      },
+      {
+        number: 1,
+        content: "Make a design DIY bookshelf for your studio",
+        tags: ["Art&Design"],
+        author: "Antoine Broudin"
+      },
+      {
+        number: 2,
+        content: "The right cost of fair agriculture",
+        tags: [" Wellness&Health"],
+        author: "Lucas Guilhot"
+      },
+      {
+        number: 3,
+        content: "Driving an assiociative project with friends",
+        tags: [" Human&Relationship"],
+        author: "Théodore Chauveaux"
+      },
+      {
+        number: 4,
+        content: "Enjoy highly complicated watches",
+        tags: ["Art&Design"],
+        author: "Jules Sesplugues"
+      },
+      {
+        number: 5,
+        content: "Understand murders in a family",
+        tags: [" Human&Relationship"],
+        author: "Elie Lafin"
+      },
+      {
+        number: 6,
+        content: "Analyse mass manipulation under dictatures",
+        tags: [" Human&Relationship"],
+        author: "Etienne Bourgeois"
       }
     ]
   };
-
+  /* functions to get the inputs */
   handleChangeContent = event => {
     this.setState({ content: event.target.value });
   };
@@ -52,7 +142,6 @@ class App extends React.Component {
                 <label className="label">
                   Content
                   <textarea
-                    className="textarea"
                     value={this.state.content}
                     onChange={this.handleChangeContent}
                   ></textarea>
@@ -60,7 +149,6 @@ class App extends React.Component {
                 <label className="label">
                   Tags
                   <input
-                    className="input"
                     type="text"
                     value={this.state.tags}
                     onChange={this.handleChangeTag}
@@ -69,7 +157,6 @@ class App extends React.Component {
                 <label className="label">
                   Author
                   <input
-                    className="input"
                     type="text"
                     value={this.state.author}
                     onChange={this.handleChangeAuthor}
@@ -77,12 +164,12 @@ class App extends React.Component {
                 </label>
               </form>
               <button
-                className="button"
+                /* function to post the new information*/
                 onClick={() => {
                   const changedData = [...this.state.data];
                   changedData.push({
                     content: this.state.content,
-                    tag: [this.state.tag],
+                    tags: [this.state.tags],
                     author: this.state.author
                   });
                   this.setState({
